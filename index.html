@@ -81,15 +81,17 @@
             background: #64748b;
         }
 
-        /* Print Media Styles: Guarantees clean, borderless single-page A4 print/PDF */
+        /* Print Media Styles: Guarantees clean, single-page A4 print/PDF without mobile blank page overflow */
         @media print {
             @page {
                 size: A4 portrait;
                 margin: 0;
             }
             html, body {
-                width: 210mm;
-                height: 297mm;
+                width: 210mm !important;
+                height: 296mm !important;
+                max-height: 296mm !important;
+                min-height: 0 !important;
                 margin: 0 !important;
                 padding: 0 !important;
                 background: #ffffff !important;
@@ -97,43 +99,64 @@
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
             }
+            /* Hide everything except the main printable container to prevent stray flex/fixed elements creating page 2 */
+            body > *:not(#main-layout) {
+                display: none !important;
+            }
             .no-print {
                 display: none !important;
             }
             #main-layout {
                 display: block !important;
+                width: 210mm !important;
+                height: 296mm !important;
+                max-height: 296mm !important;
                 padding: 0 !important;
                 margin: 0 !important;
-                height: auto !important;
+                overflow: hidden !important;
             }
             #editor-panel {
                 display: none !important;
             }
             #preview-panel {
                 display: block !important;
-                width: 100% !important;
+                width: 210mm !important;
+                height: 296mm !important;
+                max-height: 296mm !important;
+                min-height: 0 !important;
                 padding: 0 !important;
                 margin: 0 !important;
                 background: transparent !important;
-                overflow: visible !important;
+                overflow: hidden !important;
             }
             #preview-viewport {
-                overflow: visible !important;
+                overflow: hidden !important;
                 display: block !important;
+                width: 210mm !important;
+                height: 296mm !important;
+                padding: 0 !important;
+                margin: 0 !important;
             }
             #a4-scaler {
                 transform: none !important;
                 width: 210mm !important;
-                height: 297mm !important;
+                height: 296mm !important;
+                max-height: 296mm !important;
                 margin: 0 !important;
+                padding: 0 !important;
             }
             .a4-sheet {
                 box-shadow: none !important;
                 margin: 0 !important;
                 width: 210mm !important;
-                height: 297mm !important;
-                page-break-after: avoid;
-                page-break-inside: avoid;
+                height: 296mm !important;
+                max-height: 296mm !important;
+                box-sizing: border-box !important;
+                overflow: hidden !important;
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+                break-after: avoid !important;
+                page-break-after: avoid !important;
             }
         }
     </style>
@@ -189,7 +212,7 @@
     <main id="main-layout" class="flex-1 max-w-[1600px] w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-0">
 
         <!-- Left Side: Form Controls (Hidden on Print) -->
-        <section id="editor-panel" class="no-print lg:col-span-7 xl:col-span-7 bg-white border-r border-slate-200 p-4 sm:p-6 pb-24 lg:pb-6 lg:h-[calc(100vh-4rem)] lg:overflow-y-auto space-y-5 sm:space-y-6">
+        <section id="editor-panel" class="no-print lg:col-span-7 xl:col-span-7 bg-white border-r border-slate-200 p-4 sm:p-6 lg:h-[calc(100vh-4rem)] lg:overflow-y-auto space-y-5 sm:space-y-6">
 
             <!-- Quick Template & Theme Switcher -->
             <div class="bg-slate-50 p-3.5 sm:p-4 rounded-2xl border border-slate-200/80 space-y-4">
@@ -579,7 +602,7 @@
         </section>
 
         <!-- Right Side: Live A4 Preview Canvas -->
-        <section id="preview-panel" class="hidden lg:flex lg:col-span-5 xl:col-span-5 bg-slate-200/80 p-3 sm:p-6 pb-24 lg:pb-6 min-h-[calc(100vh-6.5rem)] lg:h-[calc(100vh-4rem)] flex-col">
+        <section id="preview-panel" class="hidden lg:flex lg:col-span-5 xl:col-span-5 bg-slate-200/80 p-3 sm:p-6 min-h-[calc(100vh-6.5rem)] lg:h-[calc(100vh-4rem)] flex-col">
             <!-- Preview Toolbar (Hidden on Print) -->
             <div class="no-print flex items-center justify-between mb-3 px-1 gap-2">
                 <div class="flex items-center gap-2 text-xs font-semibold text-slate-600">
@@ -613,8 +636,8 @@
 
     </main>
 
-    <!-- Floating Mobile Bottom Action Bar (Hidden on Desktop & Print) -->
-    <div class="no-print lg:hidden fixed bottom-0 inset-x-0 z-30 bg-white/95 backdrop-blur-md border-t border-slate-200 px-3 py-2.5 shadow-[0_-4px_12px_rgba(0,0,0,0.06)] flex items-center gap-2">
+    <!-- Custom Toast / Message Box (Replaces alert()) -->
+    <div id="toast-box" class="no-print fixed bottom-5 right-4 left-4 sm:left-auto sm:right-5 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
         <button type="button" id="mobile-bottom-toggle-btn" onclick="toggleMobileTab()" class="flex-1 inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 active:scale-95 text-slate-800 font-bold text-xs border border-slate-300 transition cursor-pointer">
             <i data-lucide="eye" class="w-4 h-4 text-emerald-700"></i>
             <span>Preview Cover</span>
@@ -746,7 +769,6 @@
             const previewPanel = document.getElementById('preview-panel');
             const tabEdit = document.getElementById('mobile-tab-edit');
             const tabPreview = document.getElementById('mobile-tab-preview');
-            const bottomToggleBtn = document.getElementById('mobile-bottom-toggle-btn');
 
             if (tab === 'preview') {
                 editorPanel.classList.add('hidden');
@@ -756,9 +778,6 @@
                 tabPreview.className = 'flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl text-xs font-bold bg-emerald-600 text-white shadow-xs transition cursor-pointer';
                 tabEdit.className = 'flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl text-xs font-bold bg-slate-700/70 text-slate-300 hover:text-white transition cursor-pointer';
 
-                if (bottomToggleBtn) {
-                    bottomToggleBtn.innerHTML = `<i data-lucide="edit-3" class="w-4 h-4 text-emerald-700"></i><span>Back to Edit</span>`;
-                }
                 setTimeout(autoFitPreview, 30);
             } else {
                 previewPanel.classList.add('hidden');
@@ -767,17 +786,9 @@
 
                 tabEdit.className = 'flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl text-xs font-bold bg-emerald-600 text-white shadow-xs transition cursor-pointer';
                 tabPreview.className = 'flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl text-xs font-bold bg-slate-700/70 text-slate-300 hover:text-white transition cursor-pointer';
-
-                if (bottomToggleBtn) {
-                    bottomToggleBtn.innerHTML = `<i data-lucide="eye" class="w-4 h-4 text-emerald-700"></i><span>Preview Cover</span>`;
-                }
             }
             if (window.lucide) lucide.createIcons();
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function toggleMobileTab() {
-            switchMobileTab(currentMobileTab === 'edit' ? 'preview' : 'edit');
         }
 
         // Template, Theme & Logo Controls
@@ -1539,18 +1550,38 @@
             const pdfFilename = getFormattedPdfFilename();
             document.title = pdfFilename;
 
+            // Reset inline scaler dimensions right before mobile print so mobile Chromium/Safari doesn't reserve extra page height
+            const scaler = document.getElementById('a4-scaler');
+            const prevTransform = scaler ? scaler.style.transform : '';
+            const prevWidth = scaler ? scaler.style.width : '';
+            const prevHeight = scaler ? scaler.style.height : '';
+
+            if (scaler) {
+                scaler.style.transform = 'none';
+                scaler.style.width = '210mm';
+                scaler.style.height = '296mm';
+            }
+
             showToast(`Saving as "${pdfFilename}.pdf"...`);
 
-            const restoreTitle = () => {
+            const cleanupAfterPrint = () => {
                 document.title = originalTitle;
-                window.removeEventListener('afterprint', restoreTitle);
+                if (scaler) {
+                    scaler.style.transform = prevTransform;
+                    scaler.style.width = prevWidth;
+                    scaler.style.height = prevHeight;
+                }
+                if (window.innerWidth < 1024 && manualZoom === null) {
+                    autoFitPreview();
+                }
+                window.removeEventListener('afterprint', cleanupAfterPrint);
             };
-            window.addEventListener('afterprint', restoreTitle);
+            window.addEventListener('afterprint', cleanupAfterPrint);
 
             setTimeout(() => {
                 window.print();
                 // Fallback restore in case afterprint doesn't fire on some mobile browsers
-                setTimeout(restoreTitle, 3000);
+                setTimeout(cleanupAfterPrint, 3000);
             }, 250);
         }
 
