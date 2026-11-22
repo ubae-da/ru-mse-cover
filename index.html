@@ -225,29 +225,56 @@
                 </div>
 
                 <!-- Template Selector -->
-                <div class="grid grid-cols-3 gap-2">
-                    <button type="button" data-template="classic" onclick="setTemplate('classic')" class="template-btn active-template flex flex-col items-center justify-center p-2.5 min-h-[54px] rounded-xl border-2 border-emerald-600 bg-emerald-50/60 text-emerald-900 text-xs font-semibold transition cursor-pointer">
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                    <button type="button" data-template="classic" onclick="setTemplate('classic')" class="template-btn active-template flex flex-col items-center justify-center p-2.5 min-h-[54px] rounded-xl border-2 border-emerald-600 bg-emerald-50/60 text-emerald-900 text-xs font-semibold transition cursor-pointer text-center">
                         <i data-lucide="award" class="w-4 h-4 mb-1 text-emerald-700"></i>
                         Classic RU
                     </button>
-                    <button type="button" data-template="modern" onclick="setTemplate('modern')" class="template-btn flex flex-col items-center justify-center p-2.5 min-h-[54px] rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold transition cursor-pointer">
+                    <button type="button" data-template="modern" onclick="setTemplate('modern')" class="template-btn flex flex-col items-center justify-center p-2.5 min-h-[54px] rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold transition cursor-pointer text-center">
                         <i data-lucide="sparkles" class="w-4 h-4 mb-1 text-slate-500"></i>
                         Modern Sidebar
                     </button>
-                    <button type="button" data-template="minimal" onclick="setTemplate('minimal')" class="template-btn flex flex-col items-center justify-center p-2.5 min-h-[54px] rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold transition cursor-pointer">
+                    <button type="button" data-template="minimal" onclick="setTemplate('minimal')" class="template-btn flex flex-col items-center justify-center p-2.5 min-h-[54px] rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold transition cursor-pointer text-center">
                         <i data-lucide="file-text" class="w-4 h-4 mb-1 text-slate-500"></i>
                         Formal Framed
+                    </button>
+                    <button type="button" data-template="banner" onclick="setTemplate('banner')" class="template-btn flex flex-col items-center justify-center p-2.5 min-h-[54px] rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold transition cursor-pointer text-center">
+                        <i data-lucide="flag" class="w-4 h-4 mb-1 text-slate-500"></i>
+                        Executive Top
+                    </button>
+                    <button type="button" data-template="clean" onclick="setTemplate('clean')" class="template-btn flex flex-col items-center justify-center p-2.5 min-h-[54px] rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold transition cursor-pointer text-center">
+                        <i data-lucide="align-center" class="w-4 h-4 mb-1 text-slate-500"></i>
+                        Clean Minimal
+                    </button>
+                    <button type="button" data-template="royal" onclick="setTemplate('royal')" class="template-btn flex flex-col items-center justify-center p-2.5 min-h-[54px] rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold transition cursor-pointer text-center">
+                        <i data-lucide="crown" class="w-4 h-4 mb-1 text-slate-500"></i>
+                        Royal Crest
+                    </button>
+                    <button type="button" data-template="geometric" onclick="setTemplate('geometric')" class="template-btn flex flex-col items-center justify-center p-2.5 min-h-[54px] rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold transition cursor-pointer text-center">
+                        <i data-lucide="layers" class="w-4 h-4 mb-1 text-slate-500"></i>
+                        Geometric Split
+                    </button>
+                    <button type="button" data-template="thesis" onclick="setTemplate('thesis')" class="template-btn flex flex-col items-center justify-center p-2.5 min-h-[54px] rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold transition cursor-pointer text-center">
+                        <i data-lucide="book-open" class="w-4 h-4 mb-1 text-slate-500"></i>
+                        Academic Thesis
                     </button>
                 </div>
 
                 <!-- Accent Color & Logo Upload -->
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1">
-                    <div class="flex items-center gap-2.5" id="theme-swatches">
+                    <div class="flex flex-wrap items-center gap-2" id="theme-swatches">
                         <span class="text-xs font-medium text-slate-600">Theme:</span>
-                        <button type="button" data-primary="#065f46" onclick="setAccent('#065f46', '#047857', '#ecfdf5')" class="theme-swatch w-7 h-7 sm:w-6 sm:h-6 rounded-full bg-[#065f46] ring-2 ring-offset-2 ring-[#065f46] transition cursor-pointer" title="RU Emerald Green"></button>
-                        <button type="button" data-primary="#1e3a8a" onclick="setAccent('#1e3a8a', '#1d4ed8', '#eff6ff')" class="theme-swatch w-7 h-7 sm:w-6 sm:h-6 rounded-full bg-[#1e3a8a] hover:scale-110 transition cursor-pointer" title="Academic Navy"></button>
-                        <button type="button" data-primary="#7f1d1d" onclick="setAccent('#7f1d1d', '#991b1b', '#fef2f2')" class="theme-swatch w-7 h-7 sm:w-6 sm:h-6 rounded-full bg-[#7f1d1d] hover:scale-110 transition cursor-pointer" title="RU Crimson Maroon"></button>
-                        <button type="button" data-primary="#0f172a" onclick="setAccent('#0f172a', '#334155', '#f8fafc')" class="theme-swatch w-7 h-7 sm:w-6 sm:h-6 rounded-full bg-[#0f172a] hover:scale-110 transition cursor-pointer" title="Charcoal Slate"></button>
+                        <button type="button" data-primary="#065f46" onclick="setAccent('#065f46', '#047857', '#ecfdf5')" class="theme-swatch w-6 h-6 rounded-full bg-[#065f46] ring-2 ring-offset-2 ring-[#065f46] transition cursor-pointer" title="RU Emerald Green"></button>
+                        <button type="button" data-primary="#1e3a8a" onclick="setAccent('#1e3a8a', '#1d4ed8', '#eff6ff')" class="theme-swatch w-6 h-6 rounded-full bg-[#1e3a8a] hover:scale-110 transition cursor-pointer" title="Academic Navy"></button>
+                        <button type="button" data-primary="#7f1d1d" onclick="setAccent('#7f1d1d', '#991b1b', '#fef2f2')" class="theme-swatch w-6 h-6 rounded-full bg-[#7f1d1d] hover:scale-110 transition cursor-pointer" title="RU Crimson Maroon"></button>
+                        <button type="button" data-primary="#0f766e" onclick="setAccent('#0f766e', '#0d9488', '#f0fdfa')" class="theme-swatch w-6 h-6 rounded-full bg-[#0f766e] hover:scale-110 transition cursor-pointer" title="Deep Teal"></button>
+                        <button type="button" data-primary="#4c1d95" onclick="setAccent('#4c1d95', '#6d28d9', '#f5f3ff')" class="theme-swatch w-6 h-6 rounded-full bg-[#4c1d95] hover:scale-110 transition cursor-pointer" title="Royal Indigo"></button>
+                        <button type="button" data-primary="#9a3412" onclick="setAccent('#9a3412', '#c2410c', '#fff7ed')" class="theme-swatch w-6 h-6 rounded-full bg-[#9a3412] hover:scale-110 transition cursor-pointer" title="Terracotta Amber"></button>
+                        <button type="button" data-primary="#0f172a" onclick="setAccent('#0f172a', '#334155', '#f8fafc')" class="theme-swatch w-6 h-6 rounded-full bg-[#0f172a] hover:scale-110 transition cursor-pointer" title="Charcoal Slate"></button>
+                        <label class="w-6 h-6 rounded-full border border-slate-300 bg-white flex items-center justify-center cursor-pointer hover:scale-110 transition overflow-hidden" title="Custom Accent Color">
+                            <i data-lucide="pipette" class="w-3.5 h-3.5 text-slate-600"></i>
+                            <input type="color" id="customColorPicker" value="#065f46" oninput="setCustomAccent(this.value)" class="sr-only">
+                        </label>
                     </div>
 
                     <div class="flex flex-wrap items-center gap-2">
@@ -638,18 +665,6 @@
 
     <!-- Custom Toast / Message Box (Replaces alert()) -->
     <div id="toast-box" class="no-print fixed bottom-5 right-4 left-4 sm:left-auto sm:right-5 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
-        <button type="button" id="mobile-bottom-toggle-btn" onclick="toggleMobileTab()" class="flex-1 inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 active:scale-95 text-slate-800 font-bold text-xs border border-slate-300 transition cursor-pointer">
-            <i data-lucide="eye" class="w-4 h-4 text-emerald-700"></i>
-            <span>Preview Cover</span>
-        </button>
-        <button type="button" onclick="triggerPrint()" class="flex-[1.35] inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 active:scale-95 text-white font-bold text-xs shadow-md transition cursor-pointer">
-            <i data-lucide="printer" class="w-4 h-4"></i>
-            <span>Save PDF / Print</span>
-        </button>
-    </div>
-
-    <!-- Custom Toast / Message Box (Replaces alert()) -->
-    <div id="toast-box" class="no-print fixed bottom-16 lg:bottom-5 right-4 left-4 sm:left-auto sm:right-5 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
         <div class="bg-slate-900 text-white px-4 py-3 rounded-2xl shadow-xl border border-slate-700 flex items-center gap-2.5 text-sm font-medium">
             <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0"></i>
             <span id="toast-message">Ready to print!</span>
@@ -803,9 +818,9 @@
             document.querySelectorAll('.template-btn').forEach(btn => {
                 const isSelected = btn.getAttribute('data-template') === state.template;
                 if (isSelected) {
-                    btn.className = 'template-btn active-template flex flex-col items-center justify-center p-2.5 min-h-[54px] rounded-xl border-2 border-emerald-600 bg-emerald-50/60 text-emerald-900 text-xs font-semibold transition cursor-pointer';
+                    btn.className = 'template-btn active-template flex flex-col items-center justify-center p-2.5 min-h-[54px] rounded-xl border-2 border-emerald-600 bg-emerald-50/60 text-emerald-900 text-xs font-semibold transition cursor-pointer text-center';
                 } else {
-                    btn.className = 'template-btn flex flex-col items-center justify-center p-2.5 min-h-[54px] rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold transition cursor-pointer';
+                    btn.className = 'template-btn flex flex-col items-center justify-center p-2.5 min-h-[54px] rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold transition cursor-pointer text-center';
                 }
             });
         }
@@ -814,9 +829,20 @@
             state.accentPrimary = primary;
             state.accentSecondary = secondary;
             state.accentTint = tint;
+            const picker = document.getElementById('customColorPicker');
+            if (picker) picker.value = primary;
             updateThemeButtonsUI();
             saveStateToStorage();
             renderCoverPage();
+        }
+
+        function setCustomAccent(hex) {
+            // Compute soft light tint from chosen hex color
+            const r = parseInt(hex.slice(1, 3), 16);
+            const g = parseInt(hex.slice(3, 5), 16);
+            const b = parseInt(hex.slice(5, 7), 16);
+            const tint = `rgba(${r}, ${g}, ${b}, 0.07)`;
+            setAccent(hex, hex, tint);
         }
 
         function updateThemeButtonsUI() {
@@ -1244,6 +1270,21 @@
             } else if (state.template === 'minimal') {
                 container.className = 'a4-sheet flex flex-col justify-between p-[15mm] text-slate-900';
                 container.innerHTML = renderFormalFramedTemplate();
+            } else if (state.template === 'banner') {
+                container.className = 'a4-sheet flex flex-col justify-between p-0 text-slate-900';
+                container.innerHTML = renderExecutiveBannerTemplate();
+            } else if (state.template === 'clean') {
+                container.className = 'a4-sheet flex flex-col justify-between p-[16mm] text-slate-900';
+                container.innerHTML = renderCleanMinimalTemplate();
+            } else if (state.template === 'royal') {
+                container.className = 'a4-sheet flex flex-col justify-between p-[13mm] text-slate-900';
+                container.innerHTML = renderRoyalCrestTemplate();
+            } else if (state.template === 'geometric') {
+                container.className = 'a4-sheet flex flex-col justify-between p-0 text-slate-900';
+                container.innerHTML = renderGeometricSplitTemplate();
+            } else if (state.template === 'thesis') {
+                container.className = 'a4-sheet flex flex-col justify-between p-[16mm] text-slate-900';
+                container.innerHTML = renderAcademicThesisTemplate();
             } else {
                 container.className = 'a4-sheet flex flex-col justify-between p-[14mm] text-slate-900';
                 container.innerHTML = renderClassicTemplate();
@@ -1517,6 +1558,458 @@
                         </div>` : ''}
                         <div>
                             <span class="font-bold text-slate-800">Date of Submission:</span>
+                            <span class="font-semibold text-slate-900 ml-1">${formatDisplayDate(state.subDate)}</span>
+                        </div>
+                    </div>
+                    ${getSignatureFooterHTML()}
+                </div>
+            `;
+        }
+
+        function renderExecutiveBannerTemplate() {
+            const p = state.accentPrimary;
+            const s = state.accentSecondary;
+            const tint = state.accentTint;
+
+            return `
+                <!-- Full-Width Executive Top Banner -->
+                <div class="w-full px-[14mm] py-[11mm] text-white flex items-center justify-between gap-6" style="background: linear-gradient(135deg, ${p} 0%, ${s} 100%);">
+                    <div class="space-y-1">
+                        <p class="text-[12px] font-bold uppercase tracking-[0.22em] text-white/80">
+                            Faculty of Engineering
+                        </p>
+                        <h1 class="font-display-academic text-[26px] font-extrabold tracking-wide uppercase leading-tight">
+                            University of Rajshahi
+                        </h1>
+                        <h2 class="font-serif-academic text-[16.5px] font-semibold text-white/95 pt-0.5">
+                            Department of Materials Science and Engineering
+                        </h2>
+                    </div>
+                    <div class="bg-white p-2.5 rounded-2xl shadow-md shrink-0">
+                        ${getLogoHTML(90)}
+                    </div>
+                </div>
+
+                <!-- Main Body -->
+                <div class="flex-1 px-[14mm] py-[11mm] flex flex-col justify-between">
+                    <!-- Document Type Strip -->
+                    <div class="text-center">
+                        <div class="inline-block px-8 py-2.5 rounded-xl border-2" style="border-color: ${p}; background-color: ${tint};">
+                            <span class="text-[20px] font-extrabold tracking-[0.14em] uppercase" style="color: ${p};">
+                                ${escapeHtml(state.docType)}
+                            </span>
+                            ${state.docNumber ? `
+                            <div class="text-[14px] font-bold text-slate-800 mt-0.5">
+                                ${escapeHtml(state.docNumber)}
+                            </div>` : ''}
+                        </div>
+                    </div>
+
+                    <!-- Course Info Box -->
+                    <div class="rounded-2xl border p-5 space-y-3" style="border-color: ${p}35; background-color: ${tint};">
+                        <div class="grid grid-cols-[170px_1fr] gap-2 items-baseline text-[15.5px]">
+                            <span class="font-bold text-slate-700">Course Code:</span>
+                            <span class="font-extrabold uppercase text-[17px]" style="color: ${p};">${escapeHtml(state.courseCode) || '____________'}</span>
+                        </div>
+                        <div class="grid grid-cols-[170px_1fr] gap-2 items-baseline text-[15.5px]">
+                            <span class="font-bold text-slate-700">Course Title:</span>
+                            <span class="font-bold text-slate-950 text-[16.5px]">${escapeHtml(state.courseTitle) || '________________________________'}</span>
+                        </div>
+                        ${state.topicTitle ? `
+                        <div class="grid grid-cols-[170px_1fr] gap-2 items-baseline text-[15.5px] pt-2.5 border-t" style="border-color: ${p}25;">
+                            <span class="font-bold text-slate-700">Experiment / Topic:</span>
+                            <span class="font-semibold text-slate-900 text-[16px] leading-snug">${escapeHtml(state.topicTitle)}</span>
+                        </div>` : ''}
+                    </div>
+
+                    <!-- Header-Styled Two-Column Submission Cards -->
+                    <div class="grid grid-cols-2 gap-5">
+                        <div class="rounded-2xl border overflow-hidden bg-white" style="border-color: ${p}45;">
+                            <div class="px-5 py-2 text-[12.5px] font-extrabold uppercase tracking-wider text-white" style="background-color: ${p};">
+                                Submitted By
+                            </div>
+                            <div class="p-5">
+                                ${getSubmittedByHTML()}
+                            </div>
+                        </div>
+                        <div class="rounded-2xl border overflow-hidden bg-white" style="border-color: ${p}45;">
+                            <div class="px-5 py-2 text-[12.5px] font-extrabold uppercase tracking-wider text-white" style="background-color: ${s};">
+                                Submitted To
+                            </div>
+                            <div class="p-5">
+                                ${getSubmittedToHTML()}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer Dates -->
+                    <div>
+                        <div class="rounded-xl border px-5 py-3 flex items-center ${state.expDate ? 'justify-between' : 'justify-center'} text-[14.5px]" style="border-color: ${p}35; background-color: ${tint};">
+                            ${state.expDate ? `
+                            <div>
+                                <span class="font-bold text-slate-700">Date of Experiment:</span>
+                                <span class="font-semibold text-slate-900 ml-1">${formatDisplayDate(state.expDate)}</span>
+                            </div>` : ''}
+                            <div>
+                                <span class="font-bold text-slate-700">Date of Submission:</span>
+                                <span class="font-semibold text-slate-900 ml-1">${formatDisplayDate(state.subDate)}</span>
+                            </div>
+                        </div>
+                        ${getSignatureFooterHTML()}
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderCleanMinimalTemplate() {
+            const p = state.accentPrimary;
+            const tint = state.accentTint;
+
+            return `
+                <!-- Clean Minimal Header -->
+                <div class="text-center space-y-2 pt-2">
+                    ${getLogoHTML(100)}
+                    <div class="pt-2">
+                        <h1 class="font-display-academic text-[26px] font-extrabold tracking-wide uppercase" style="color: ${p};">
+                            University of Rajshahi
+                        </h1>
+                        <p class="text-[13px] font-semibold uppercase tracking-[0.2em] text-slate-500 mt-0.5">
+                            Faculty of Engineering
+                        </p>
+                        <h2 class="font-serif-academic text-[18px] font-bold text-slate-900 mt-1.5">
+                            Department of Materials Science and Engineering
+                        </h2>
+                    </div>
+                </div>
+
+                <!-- Minimal Document Heading -->
+                <div class="text-center my-4">
+                    <div class="text-[22px] font-black tracking-[0.16em] uppercase" style="color: ${p};">
+                        ${escapeHtml(state.docType)}
+                    </div>
+                    ${state.docNumber ? `<div class="text-[14.5px] font-bold text-slate-600 mt-1">${escapeHtml(state.docNumber)}</div>` : ''}
+                    <div class="w-24 h-1 mx-auto mt-3 rounded-full" style="background-color: ${p};"></div>
+                </div>
+
+                <!-- Soft Tinted Course Block -->
+                <div class="rounded-2xl p-6 space-y-3" style="background-color: ${tint};">
+                    <div class="grid grid-cols-[170px_1fr] gap-2 items-baseline text-[15.5px]">
+                        <span class="font-bold text-slate-600">Course Code:</span>
+                        <span class="font-extrabold uppercase text-[17px]" style="color: ${p};">${escapeHtml(state.courseCode) || '____________'}</span>
+                    </div>
+                    <div class="grid grid-cols-[170px_1fr] gap-2 items-baseline text-[15.5px]">
+                        <span class="font-bold text-slate-600">Course Title:</span>
+                        <span class="font-bold text-slate-950 text-[16.5px]">${escapeHtml(state.courseTitle) || '________________________________'}</span>
+                    </div>
+                    ${state.topicTitle ? `
+                    <div class="grid grid-cols-[170px_1fr] gap-2 items-baseline text-[15.5px] pt-2.5 border-t" style="border-color: ${p}20;">
+                        <span class="font-bold text-slate-600">Experiment / Topic:</span>
+                        <span class="font-semibold text-slate-900 text-[16px] leading-snug">${escapeHtml(state.topicTitle)}</span>
+                    </div>` : ''}
+                </div>
+
+                <!-- Open Two-Column Submission Grid -->
+                <div class="grid grid-cols-2 gap-8 my-4 px-2">
+                    <div>
+                        <div class="text-[12.5px] font-extrabold uppercase tracking-widest pb-2 mb-3 border-b-2" style="color: ${p}; border-color: ${p};">
+                            Submitted By
+                        </div>
+                        ${getSubmittedByHTML()}
+                    </div>
+                    <div>
+                        <div class="text-[12.5px] font-extrabold uppercase tracking-widest pb-2 mb-3 border-b-2" style="color: ${p}; border-color: ${p};">
+                            Submitted To
+                        </div>
+                        ${getSubmittedToHTML()}
+                    </div>
+                </div>
+
+                <!-- Minimal Footer Dates -->
+                <div>
+                    <div class="pt-4 border-t-2 flex items-center ${state.expDate ? 'justify-between' : 'justify-center'} text-[14.5px]" style="border-color: ${p}40;">
+                        ${state.expDate ? `
+                        <div>
+                            <span class="font-bold text-slate-700">Date of Experiment:</span>
+                            <span class="font-semibold text-slate-900 ml-1">${formatDisplayDate(state.expDate)}</span>
+                        </div>` : ''}
+                        <div>
+                            <span class="font-bold text-slate-700">Date of Submission:</span>
+                            <span class="font-semibold text-slate-900 ml-1">${formatDisplayDate(state.subDate)}</span>
+                        </div>
+                    </div>
+                    ${getSignatureFooterHTML()}
+                </div>
+            `;
+        }
+
+        function renderRoyalCrestTemplate() {
+            const p = state.accentPrimary;
+            const s = state.accentSecondary;
+            const tint = state.accentTint;
+
+            return `
+                <div class="w-full h-full relative border-2 p-7 flex flex-col justify-between" style="border-color: ${p};">
+                    <!-- Decorative Corner Ornaments -->
+                    <div class="absolute top-0 left-0 w-9 h-9 border-t-[6px] border-l-[6px]" style="border-color: ${p};"></div>
+                    <div class="absolute top-0 right-0 w-9 h-9 border-t-[6px] border-r-[6px]" style="border-color: ${p};"></div>
+                    <div class="absolute bottom-0 left-0 w-9 h-9 border-b-[6px] border-l-[6px]" style="border-color: ${p};"></div>
+                    <div class="absolute bottom-0 right-0 w-9 h-9 border-b-[6px] border-r-[6px]" style="border-color: ${p};"></div>
+
+                    <!-- University & Department Crest Header -->
+                    <div class="text-center space-y-2 pt-2">
+                        <div class="inline-block p-2 rounded-full border-2 shadow-2xs" style="border-color: ${p}50; background-color: ${tint};">
+                            ${getLogoHTML(98)}
+                        </div>
+                        <div class="pt-1">
+                            <h1 class="font-display-academic text-[26px] font-extrabold tracking-wide uppercase" style="color: ${p};">
+                                University of Rajshahi
+                            </h1>
+                            <div class="flex items-center justify-center gap-3 my-1">
+                                <span class="h-[1.5px] w-14" style="background-color: ${s};"></span>
+                                <span class="text-[12.5px] font-bold uppercase tracking-[0.22em] text-slate-600">Faculty of Engineering</span>
+                                <span class="h-[1.5px] w-14" style="background-color: ${s};"></span>
+                            </div>
+                            <h2 class="font-serif-academic text-[18px] font-bold text-slate-900">
+                                Department of Materials Science and Engineering
+                            </h2>
+                        </div>
+                    </div>
+
+                    <!-- Pill Document Title -->
+                    <div class="my-3 text-center">
+                        <div class="inline-block px-10 py-2.5 rounded-full text-white shadow-xs" style="background: linear-gradient(90deg, ${p} 0%, ${s} 100%);">
+                            <span class="text-[19px] font-extrabold tracking-[0.16em] uppercase">
+                                ${escapeHtml(state.docType)}
+                            </span>
+                        </div>
+                        ${state.docNumber ? `<div class="text-[14.5px] font-bold mt-1.5" style="color: ${p};">${escapeHtml(state.docNumber)}</div>` : ''}
+                    </div>
+
+                    <!-- Course Details Box -->
+                    <div class="rounded-2xl border-2 p-5 space-y-3" style="border-color: ${p}35; background-color: ${tint};">
+                        <div class="grid grid-cols-[170px_1fr] gap-2 items-baseline text-[15.5px]">
+                            <span class="font-bold text-slate-700">Course Code:</span>
+                            <span class="font-extrabold uppercase text-[17px]" style="color: ${p};">${escapeHtml(state.courseCode) || '____________'}</span>
+                        </div>
+                        <div class="grid grid-cols-[170px_1fr] gap-2 items-baseline text-[15.5px]">
+                            <span class="font-bold text-slate-700">Course Title:</span>
+                            <span class="font-bold text-slate-950 text-[16.5px]">${escapeHtml(state.courseTitle) || '________________________________'}</span>
+                        </div>
+                        ${state.topicTitle ? `
+                        <div class="grid grid-cols-[170px_1fr] gap-2 items-baseline text-[15.5px] pt-2 border-t" style="border-color: ${p}25;">
+                            <span class="font-bold text-slate-700">Experiment / Topic:</span>
+                            <span class="font-semibold text-slate-900 text-[16px] leading-snug">${escapeHtml(state.topicTitle)}</span>
+                        </div>` : ''}
+                    </div>
+
+                    <!-- Submitted By & Submitted To -->
+                    <div class="grid grid-cols-2 gap-5 my-3">
+                        <div class="rounded-2xl border p-5 bg-white" style="border-color: ${p}45;">
+                            <div class="text-center text-[12.5px] font-extrabold uppercase tracking-widest py-1 px-3 rounded-lg mb-3" style="background-color: ${tint}; color: ${p};">
+                                Submitted By
+                            </div>
+                            ${getSubmittedByHTML()}
+                        </div>
+                        <div class="rounded-2xl border p-5 bg-white" style="border-color: ${p}45;">
+                            <div class="text-center text-[12.5px] font-extrabold uppercase tracking-widest py-1 px-3 rounded-lg mb-3" style="background-color: ${tint}; color: ${p};">
+                                Submitted To
+                            </div>
+                            ${getSubmittedToHTML()}
+                        </div>
+                    </div>
+
+                    <!-- Dates & Signature -->
+                    <div>
+                        <div class="rounded-xl border px-5 py-3 flex items-center ${state.expDate ? 'justify-between' : 'justify-center'} text-[14.5px]" style="border-color: ${p}40; background-color: ${tint};">
+                            ${state.expDate ? `
+                            <div>
+                                <span class="font-bold text-slate-700">Date of Experiment:</span>
+                                <span class="font-semibold text-slate-900 ml-1">${formatDisplayDate(state.expDate)}</span>
+                            </div>` : ''}
+                            <div>
+                                <span class="font-bold text-slate-700">Date of Submission:</span>
+                                <span class="font-semibold text-slate-900 ml-1">${formatDisplayDate(state.subDate)}</span>
+                            </div>
+                        </div>
+                        ${getSignatureFooterHTML()}
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderGeometricSplitTemplate() {
+            const p = state.accentPrimary;
+            const s = state.accentSecondary;
+            const tint = state.accentTint;
+
+            return `
+                <!-- Top Geometric Accent Bars -->
+                <div class="w-full">
+                    <div class="h-[6mm] w-full" style="background-color: ${p};"></div>
+                    <div class="h-[2mm] w-3/4" style="background-color: ${s};"></div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="flex-1 px-[15mm] py-[10mm] flex flex-col justify-between">
+                    <!-- Asymmetric Header -->
+                    <div class="flex items-center justify-between gap-6 pb-5 border-b" style="border-color: ${p}30;">
+                        <div class="space-y-1">
+                            <span class="inline-block px-2.5 py-0.5 rounded text-[11px] font-bold uppercase tracking-widest" style="background-color: ${tint}; color: ${p};">
+                                Faculty of Engineering
+                            </span>
+                            <h1 class="font-display-academic text-[27px] font-extrabold tracking-tight uppercase" style="color: ${p};">
+                                University of Rajshahi
+                            </h1>
+                            <h2 class="font-serif-academic text-[17px] font-bold text-slate-800">
+                                Department of Materials Science and Engineering
+                            </h2>
+                        </div>
+                        <div class="shrink-0">
+                            ${getLogoHTML(98)}
+                        </div>
+                    </div>
+
+                    <!-- Left-Aligned Bold Document Block -->
+                    <div class="my-3 pl-4 border-l-[6px]" style="border-color: ${p};">
+                        <div class="text-[23px] font-black tracking-[0.12em] uppercase leading-tight" style="color: ${p};">
+                            ${escapeHtml(state.docType)}
+                        </div>
+                        ${state.docNumber ? `
+                        <div class="text-[15.5px] font-bold text-slate-700 mt-0.5">
+                            ${escapeHtml(state.docNumber)}
+                        </div>` : ''}
+                    </div>
+
+                    <!-- Course Grid Card -->
+                    <div class="rounded-2xl p-5 space-y-3 border" style="background-color: ${tint}; border-color: ${p}30;">
+                        <div class="grid grid-cols-[165px_1fr] gap-2 items-baseline text-[15.5px]">
+                            <span class="font-bold text-slate-600">Course Code:</span>
+                            <span class="font-extrabold text-[17.5px] uppercase" style="color: ${p};">${escapeHtml(state.courseCode) || '____________'}</span>
+                        </div>
+                        <div class="grid grid-cols-[165px_1fr] gap-2 items-baseline text-[15.5px]">
+                            <span class="font-bold text-slate-600">Course Title:</span>
+                            <span class="font-bold text-slate-950 text-[16.5px]">${escapeHtml(state.courseTitle) || '________________________________'}</span>
+                        </div>
+                        ${state.topicTitle ? `
+                        <div class="grid grid-cols-[165px_1fr] gap-2 items-baseline text-[15.5px] pt-2.5 border-t" style="border-color: ${p}20;">
+                            <span class="font-bold text-slate-600">Experiment / Topic:</span>
+                            <span class="font-semibold text-slate-900 text-[16px] leading-snug">${escapeHtml(state.topicTitle)}</span>
+                        </div>` : ''}
+                    </div>
+
+                    <!-- Two-Column Submission Blocks -->
+                    <div class="grid grid-cols-2 gap-6 my-3">
+                        <div class="p-5 rounded-2xl border-t-4 border bg-white shadow-2xs" style="border-color: ${p}30; border-top-color: ${p};">
+                            <div class="text-[13px] font-extrabold uppercase tracking-wider mb-3" style="color: ${p};">
+                                Submitted By
+                            </div>
+                            ${getSubmittedByHTML()}
+                        </div>
+                        <div class="p-5 rounded-2xl border-t-4 border bg-white shadow-2xs" style="border-color: ${p}30; border-top-color: ${s};">
+                            <div class="text-[13px] font-extrabold uppercase tracking-wider mb-3" style="color: ${p};">
+                                Submitted To
+                            </div>
+                            ${getSubmittedToHTML()}
+                        </div>
+                    </div>
+
+                    <!-- Dates & Signature -->
+                    <div>
+                        <div class="rounded-xl px-5 py-3 flex items-center ${state.expDate ? 'justify-between' : 'justify-center'} text-[14.5px] border" style="background-color: ${tint}; border-color: ${p}30;">
+                            ${state.expDate ? `
+                            <div>
+                                <span class="font-bold text-slate-700">Date of Experiment:</span>
+                                <span class="font-semibold text-slate-900 ml-1">${formatDisplayDate(state.expDate)}</span>
+                            </div>` : ''}
+                            <div>
+                                <span class="font-bold text-slate-700">Date of Submission:</span>
+                                <span class="font-semibold text-slate-900 ml-1">${formatDisplayDate(state.subDate)}</span>
+                            </div>
+                        </div>
+                        ${getSignatureFooterHTML()}
+                    </div>
+                </div>
+
+                <!-- Bottom Geometric Accent Bars -->
+                <div class="w-full flex flex-col items-end">
+                    <div class="h-[2mm] w-3/4" style="background-color: ${s};"></div>
+                    <div class="h-[6mm] w-full" style="background-color: ${p};"></div>
+                </div>
+            `;
+        }
+
+        function renderAcademicThesisTemplate() {
+            const p = state.accentPrimary;
+            const tint = state.accentTint;
+
+            return `
+                <!-- Classic Serif University Header -->
+                <div class="text-center space-y-2 pt-1">
+                    ${getLogoHTML(108)}
+                    <h1 class="font-serif-academic text-[25px] font-black uppercase tracking-wider pt-2" style="color: ${p};">
+                        University of Rajshahi
+                    </h1>
+                    <p class="font-serif-academic text-[14px] italic text-slate-600">
+                        Faculty of Engineering
+                    </p>
+                    <h2 class="font-serif-academic text-[18px] font-bold text-slate-900">
+                        Department of Materials Science and Engineering
+                    </h2>
+                    <div class="border-b-2 w-full pt-2" style="border-color: ${p};"></div>
+                </div>
+
+                <!-- Formal Document & Course Specification -->
+                <div class="my-4 text-center space-y-3">
+                    <div>
+                        <span class="font-serif-academic text-[21px] font-black uppercase tracking-[0.14em]" style="color: ${p};">
+                            ${escapeHtml(state.docType)}
+                        </span>
+                        ${state.docNumber ? `<div class="font-serif-academic text-[14.5px] font-bold text-slate-700 mt-1">${escapeHtml(state.docNumber)}</div>` : ''}
+                    </div>
+
+                    <div class="py-4 px-6 border-y text-left space-y-2.5" style="border-color: ${p}50; background-color: ${tint};">
+                        <div class="grid grid-cols-[170px_1fr] gap-2 items-baseline text-[15.5px]">
+                            <span class="font-serif-academic font-bold text-slate-700">Course Code:</span>
+                            <span class="font-extrabold uppercase text-[17px]" style="color: ${p};">${escapeHtml(state.courseCode) || '____________'}</span>
+                        </div>
+                        <div class="grid grid-cols-[170px_1fr] gap-2 items-baseline text-[15.5px]">
+                            <span class="font-serif-academic font-bold text-slate-700">Course Title:</span>
+                            <span class="font-serif-academic font-bold text-slate-950 text-[16px]">${escapeHtml(state.courseTitle) || '________________________________'}</span>
+                        </div>
+                        ${state.topicTitle ? `
+                        <div class="grid grid-cols-[170px_1fr] gap-2 items-baseline text-[15.5px] pt-2 border-t" style="border-color: ${p}25;">
+                            <span class="font-serif-academic font-bold text-slate-700">Experiment / Topic:</span>
+                            <span class="font-serif-academic font-semibold text-slate-900 text-[15.5px] leading-snug">${escapeHtml(state.topicTitle)}</span>
+                        </div>` : ''}
+                    </div>
+                </div>
+
+                <!-- Two-Column Submission Section -->
+                <div class="grid grid-cols-2 gap-6 my-3">
+                    <div class="p-5 border rounded-lg" style="border-color: ${p}45;">
+                        <div class="font-serif-academic text-[13.5px] font-bold uppercase tracking-wider pb-2 mb-3 border-b" style="color: ${p}; border-color: ${p}40;">
+                            Submitted By
+                        </div>
+                        ${getSubmittedByHTML()}
+                    </div>
+                    <div class="p-5 border rounded-lg" style="border-color: ${p}45;">
+                        <div class="font-serif-academic text-[13.5px] font-bold uppercase tracking-wider pb-2 mb-3 border-b" style="color: ${p}; border-color: ${p}40;">
+                            Submitted To
+                        </div>
+                        ${getSubmittedToHTML()}
+                    </div>
+                </div>
+
+                <!-- Footer Dates & Signature -->
+                <div>
+                    <div class="border-t-2 pt-3 flex items-center ${state.expDate ? 'justify-between' : 'justify-center'} text-[14.5px]" style="border-color: ${p};">
+                        ${state.expDate ? `
+                        <div>
+                            <span class="font-serif-academic font-bold text-slate-800">Date of Experiment:</span>
+                            <span class="font-semibold text-slate-900 ml-1">${formatDisplayDate(state.expDate)}</span>
+                        </div>` : ''}
+                        <div>
+                            <span class="font-serif-academic font-bold text-slate-800">Date of Submission:</span>
                             <span class="font-semibold text-slate-900 ml-1">${formatDisplayDate(state.subDate)}</span>
                         </div>
                     </div>
