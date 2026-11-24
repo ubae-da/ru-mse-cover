@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cover Page Generator — Dept. of Materials Science & Engineering, RU</title>
+    <link rel="icon" type="image/png" href="mse.png">
+    <link rel="apple-touch-icon" href="mse.png">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Inter, Merriweather (Academic Serif), and Playfair Display -->
@@ -17,8 +19,8 @@
         /* Custom Fonts & Base Setup */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f1f5f9;
-            color: #0f172a;
+            background-color: #f4f5f7;
+            color: #111827;
         }
 
         .font-serif-academic {
@@ -51,7 +53,7 @@
         }
 
         #a4-scaler {
-            transform-origin: top center;
+            transform-origin: top left;
             transition: transform 0.2s ease-out;
         }
 
@@ -71,14 +73,14 @@
             height: 6px;
         }
         ::-webkit-scrollbar-track {
-            background: #e2e8f0;
+            background: #e5e7eb;
         }
         ::-webkit-scrollbar-thumb {
-            background: #94a3b8;
+            background: #9ca3af;
             border-radius: 9999px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #64748b;
+            background: #6b7280;
         }
 
         /* Print Media Styles: Guarantees clean, single-page A4 print/PDF without mobile blank page overflow */
@@ -164,30 +166,30 @@
 <body class="min-h-screen flex flex-col">
 
     <!-- Top Navigation Bar (Hidden on Print) -->
-    <header class="no-print bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-30 shadow-md">
+    <header class="no-print bg-[#0f172a] text-white border-b border-indigo-950/80 sticky top-0 z-30 shadow-md">
         <div class="max-w-[1600px] mx-auto px-3 sm:px-6 h-14 sm:h-16 flex items-center justify-between gap-2 sm:gap-3">
             <div class="flex items-center gap-2.5 sm:gap-3 min-w-0">
-                <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white/95 flex items-center justify-center shrink-0 shadow-inner border border-slate-700 p-1 overflow-hidden">
+                <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white/95 flex items-center justify-center shrink-0 shadow-inner border border-indigo-800/40 p-1 overflow-hidden">
                     <img src="mse.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" alt="RU MSE Logo" class="w-full h-full object-contain">
-                    <i data-lucide="atom" style="display:none;" class="w-5 h-5 sm:w-6 sm:h-6 text-emerald-700"></i>
+                    <i data-lucide="atom" style="display:none;" class="w-5 h-5 sm:w-6 sm:h-6 text-indigo-700"></i>
                 </div>
                 <div class="min-w-0">
                     <div class="flex items-center gap-2">
                         <h1 class="font-bold text-sm sm:text-lg tracking-tight truncate">RU MSE Cover Page</h1>
-                        <span class="hidden md:inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                        <span class="hidden md:inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-indigo-500/20 text-indigo-200 border border-indigo-400/30">
                             10 Templates • A4 Ready
                         </span>
                     </div>
-                    <p class="text-[11px] sm:text-xs text-slate-400 truncate">Dept. of Materials Science & Engineering, RU</p>
+                    <p class="text-[11px] sm:text-xs text-slate-300 truncate">Dept. of Materials Science & Engineering, RU</p>
                 </div>
             </div>
 
             <div class="flex items-center gap-1.5 sm:gap-3 shrink-0">
-                <button type="button" onclick="resetDefaults()" title="Reset to Default Values" class="inline-flex items-center justify-center gap-1.5 p-2 sm:px-3 sm:py-2 rounded-xl text-xs sm:text-sm font-medium bg-slate-800 hover:bg-slate-700 active:scale-95 text-slate-200 border border-slate-700 transition cursor-pointer">
+                <button type="button" onclick="resetDefaults()" title="Reset to Default Values" class="inline-flex items-center justify-center gap-1.5 p-2 sm:px-3 sm:py-2 rounded-xl text-xs sm:text-sm font-medium bg-slate-800/90 hover:bg-slate-700 active:scale-95 text-slate-200 border border-slate-700 transition cursor-pointer">
                     <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
                     <span class="hidden sm:inline">Reset</span>
                 </button>
-                <button type="button" onclick="triggerPrint()" class="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-emerald-600 hover:bg-emerald-500 active:scale-95 text-white shadow-lg shadow-emerald-900/40 transition cursor-pointer">
+                <button type="button" onclick="triggerPrint()" class="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-indigo-600 hover:bg-indigo-500 active:scale-95 text-white shadow-lg shadow-indigo-950/50 transition cursor-pointer">
                     <i data-lucide="printer" class="w-4 h-4"></i>
                     <span class="hidden xs:inline sm:inline">Download PDF</span>
                     <span class="xs:hidden sm:hidden">PDF</span>
@@ -196,8 +198,8 @@
         </div>
 
         <!-- Mobile Sticky View Switcher Tabs (Edit Form vs Live A4 Preview) -->
-        <div class="lg:hidden bg-slate-800/95 border-t border-slate-700/80 px-3 py-2 grid grid-cols-2 gap-2">
-            <button type="button" id="mobile-tab-edit" onclick="switchMobileTab('edit')" class="flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl text-xs font-bold bg-emerald-600 text-white shadow-xs transition cursor-pointer">
+        <div class="lg:hidden bg-[#1e293b] border-t border-slate-700/80 px-3 py-2 grid grid-cols-2 gap-2">
+            <button type="button" id="mobile-tab-edit" onclick="switchMobileTab('edit')" class="flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl text-xs font-bold bg-indigo-600 text-white shadow-xs transition cursor-pointer">
                 <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
                 <span>1. Edit Details</span>
             </button>
@@ -209,25 +211,25 @@
     </header>
 
     <!-- Main Split Workspace -->
-    <main id="main-layout" class="flex-1 max-w-[1600px] w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-0">
+    <main id="main-layout" class="flex-1 max-w-[1600px] w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-0 items-start">
 
         <!-- Left Side: Form Controls (Hidden on Print) -->
-        <section id="editor-panel" class="no-print lg:col-span-7 xl:col-span-7 bg-white border-r border-slate-200 p-4 sm:p-6 lg:h-[calc(100vh-4rem)] lg:overflow-y-auto space-y-5 sm:space-y-6">
+        <section id="editor-panel" class="no-print lg:col-span-7 xl:col-span-7 bg-[#fafaf9] border-r border-stone-200 p-4 sm:p-6 space-y-5 sm:space-y-6">
 
             <!-- Quick Template & Theme Switcher -->
-            <div class="bg-slate-50 p-3.5 sm:p-4 rounded-2xl border border-slate-200/80 space-y-4">
+            <div class="bg-white p-3.5 sm:p-4 rounded-2xl border border-stone-200/90 shadow-2xs space-y-4">
                 <div class="flex items-center justify-between">
                     <h2 class="text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
-                        <i data-lucide="layout-template" class="w-4 h-4 text-emerald-600"></i>
+                        <i data-lucide="layout-template" class="w-4 h-4 text-indigo-600"></i>
                         Design Template & Accent (10 Styles)
                     </h2>
-                    <span id="save-indicator" class="text-[11px] text-emerald-600 font-medium opacity-0 transition-opacity duration-300">Saved locally</span>
+                    <span id="save-indicator" class="text-[11px] text-indigo-600 font-medium opacity-0 transition-opacity duration-300">Saved locally</span>
                 </div>
 
                 <!-- Template Selector Grid (10 Selected Templates) -->
                 <div class="grid grid-cols-2 sm:grid-cols-5 gap-2">
-                    <button type="button" data-template="classic" onclick="setTemplate('classic')" class="template-btn active-template flex flex-col items-center justify-center p-2.5 min-h-[54px] rounded-xl border-2 border-emerald-600 bg-emerald-50/60 text-emerald-900 text-xs font-semibold transition cursor-pointer text-center">
-                        <i data-lucide="award" class="w-4 h-4 mb-1 text-emerald-700"></i>
+                    <button type="button" data-template="classic" onclick="setTemplate('classic')" class="template-btn active-template flex flex-col items-center justify-center p-2.5 min-h-[54px] rounded-xl border-2 border-indigo-600 bg-indigo-50/70 text-indigo-950 text-xs font-semibold transition cursor-pointer text-center">
+                        <i data-lucide="award" class="w-4 h-4 mb-1 text-indigo-700"></i>
                         Classic RU
                     </button>
                     <button type="button" data-template="modern" onclick="setTemplate('modern')" class="template-btn flex flex-col items-center justify-center p-2.5 min-h-[54px] rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold transition cursor-pointer text-center">
@@ -286,11 +288,11 @@
                     </div>
 
                     <div class="flex flex-wrap items-center gap-2">
-                        <div class="inline-flex rounded-xl bg-white p-1 border border-slate-300 text-xs">
-                            <button type="button" data-logo="mse.png" onclick="setLogoPreset('mse.png')" class="logo-preset-btn inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1.5 rounded-lg font-semibold bg-emerald-600 text-white transition cursor-pointer">
+                        <div class="inline-flex rounded-xl bg-stone-100 p-1 border border-stone-300 text-xs">
+                            <button type="button" data-logo="mse.png" onclick="setLogoPreset('mse.png')" class="logo-preset-btn inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1.5 rounded-lg font-semibold bg-indigo-600 text-white transition cursor-pointer">
                                 <span class="w-7 h-7 rounded bg-white p-0.5 flex items-center justify-center shrink-0 overflow-hidden shadow-2xs">
                                     <img src="mse.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="MSE" class="w-full h-full object-contain">
-                                    <span style="display:none;" class="text-[10px] font-black text-emerald-700 leading-none">MSE</span>
+                                    <span style="display:none;" class="text-[10px] font-black text-indigo-700 leading-none">MSE</span>
                                 </span>
                                 <span>MSE Logo</span>
                             </button>
@@ -302,7 +304,7 @@
                                 <span>RU Logo</span>
                             </button>
                         </div>
-                        <label class="inline-flex items-center gap-1.5 px-3 py-2.5 rounded-xl text-xs font-medium bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 cursor-pointer transition">
+                        <label class="inline-flex items-center gap-1.5 px-3 py-2.5 rounded-xl text-xs font-medium bg-white border border-stone-300 hover:bg-stone-50 text-slate-700 cursor-pointer transition">
                             <i data-lucide="image-plus" class="w-4 h-4 text-slate-500"></i>
                             <span>Custom</span>
                             <input type="file" id="logo-upload" accept="image/*" class="hidden" onchange="handleLogoUpload(event)">
@@ -313,16 +315,16 @@
             </div>
 
             <!-- Section 1: Document Type & Course Details -->
-            <div class="space-y-4">
-                <h3 class="text-sm font-bold text-slate-800 flex items-center gap-2 border-b border-slate-100 pb-2">
-                    <span class="w-6 h-6 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-bold">1</span>
+            <div class="bg-white p-4 sm:p-5 rounded-2xl border border-stone-200/90 shadow-2xs space-y-4">
+                <h3 class="text-sm font-bold text-slate-800 flex items-center gap-2 border-b border-stone-100 pb-2.5">
+                    <span class="w-6 h-6 rounded-lg bg-indigo-100 text-indigo-700 flex items-center justify-center text-xs font-bold">1</span>
                     Document & Course Information
                 </h3>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
                         <label class="block text-xs font-semibold text-slate-600 mb-1">Submission Type</label>
-                        <select id="docType" onchange="updatePreview()" class="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none">
+                        <select id="docType" onchange="updatePreview()" class="w-full rounded-xl border border-stone-300 bg-white px-3 py-2.5 text-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none">
                             <option value="LAB REPORT">Lab Report</option>
                             <option value="ASSIGNMENT">Assignment</option>
                             <option value="TERM PAPER">Term Paper</option>
@@ -332,14 +334,14 @@
                         </select>
                     </div>
                     <div>
-                        <label class="block text-xs font-semibold text-slate-600 mb-1">Experiment / Assignment No.</label>
-                        <input type="text" id="docNumber" autocomplete="off" oninput="updatePreview()" placeholder="e.g., Experiment No. 01 / Assignment 02" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none">
+                        <label id="docNumberLabel" class="block text-xs font-semibold text-slate-600 mb-1">Experiment No.</label>
+                        <input type="text" id="docNumber" autocomplete="off" oninput="updatePreview()" placeholder="e.g., Experiment No. 01" class="w-full rounded-xl border border-stone-300 px-3 py-2 text-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none">
                     </div>
                 </div>
 
                 <div>
                     <label class="block text-xs font-semibold text-slate-600 mb-1">Quick MSE Curriculum Course Preset</label>
-                    <select id="coursePreset" onchange="applyCoursePreset()" class="w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2 text-sm text-slate-700 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none">
+                    <select id="coursePreset" onchange="applyCoursePreset()" class="w-full rounded-xl border border-stone-300 bg-stone-50 px-3 py-2 text-sm text-slate-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none">
                         <option value="">-- Select Course (B.Sc. Engg. in MSE Curriculum) --</option>
                         <optgroup label="First Year First Semester">
                             <option value="MSE1111|Introduction to Materials Science and Engineering">MSE1111 — Introduction to Materials Science and Engineering</option>
@@ -445,43 +447,43 @@
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                     <div>
                         <label class="block text-xs font-semibold text-slate-600 mb-1">Course Code</label>
-                        <input type="text" id="courseCode" autocomplete="off" oninput="updatePreview()" placeholder="e.g., MSE1111" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm uppercase font-medium focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none">
+                        <input type="text" id="courseCode" autocomplete="off" oninput="updatePreview()" placeholder="e.g., MSE1111" class="w-full rounded-xl border border-stone-300 px-3 py-2 text-sm uppercase font-medium focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none">
                     </div>
                     <div class="sm:col-span-2">
                         <label class="block text-xs font-semibold text-slate-600 mb-1">Course Title</label>
-                        <input type="text" id="courseTitle" autocomplete="off" oninput="updatePreview()" placeholder="Enter full course title" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none">
+                        <input type="text" id="courseTitle" autocomplete="off" oninput="updatePreview()" placeholder="Enter full course title" class="w-full rounded-xl border border-stone-300 px-3 py-2 text-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none">
                     </div>
                 </div>
 
                 <div>
-                    <label class="block text-xs font-semibold text-slate-600 mb-1">Experiment Name / Assignment Topic</label>
-                    <textarea id="topicTitle" rows="2" autocomplete="off" oninput="updatePreview()" placeholder="Enter the title of your experiment, assignment, or report..." class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none"></textarea>
+                    <label id="topicTitleLabel" class="block text-xs font-semibold text-slate-600 mb-1">Experiment Name</label>
+                    <textarea id="topicTitle" rows="2" autocomplete="off" oninput="updatePreview()" placeholder="Enter the name of your experiment..." class="w-full rounded-xl border border-stone-300 px-3 py-2 text-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none"></textarea>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                        <label class="block text-xs font-semibold text-slate-600 mb-1">Date of Experiment / Assignment (Optional)</label>
-                        <input type="date" id="expDate" autocomplete="off" oninput="updatePreview()" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none">
+                        <label id="expDateLabel" class="block text-xs font-semibold text-slate-600 mb-1">Date of Experiment (Optional)</label>
+                        <input type="date" id="expDate" autocomplete="off" oninput="updatePreview()" class="w-full rounded-xl border border-stone-300 px-3 py-2 text-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none">
                     </div>
                     <div>
                         <label class="block text-xs font-semibold text-slate-600 mb-1">Date of Submission</label>
-                        <input type="date" id="subDate" autocomplete="off" oninput="updatePreview()" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none">
+                        <input type="date" id="subDate" autocomplete="off" oninput="updatePreview()" class="w-full rounded-xl border border-stone-300 px-3 py-2 text-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none">
                     </div>
                 </div>
             </div>
 
             <!-- Section 2: Submitted To (Faculty Member) -->
-            <div class="space-y-4">
-                <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+            <div class="bg-white p-4 sm:p-5 rounded-2xl border border-stone-200/90 shadow-2xs space-y-4">
+                <div class="flex items-center justify-between border-b border-stone-100 pb-2.5">
                     <h3 class="text-sm font-bold text-slate-800 flex items-center gap-2">
-                        <span class="w-6 h-6 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-bold">2</span>
+                        <span class="w-6 h-6 rounded-lg bg-indigo-100 text-indigo-700 flex items-center justify-center text-xs font-bold">2</span>
                         Submitted To (Course Teacher)
                     </h3>
                 </div>
 
                 <div>
                     <label class="block text-xs font-semibold text-slate-600 mb-1">Select RU MSE Faculty Member (Quick Fill)</label>
-                    <select id="facultyPreset" onchange="applyFacultyPreset()" class="w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2 text-sm text-slate-700 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none">
+                    <select id="facultyPreset" onchange="applyFacultyPreset()" class="w-full rounded-xl border border-stone-300 bg-stone-50 px-3 py-2 text-sm text-slate-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none">
                         <option value="">-- Choose Faculty Member or Type Below --</option>
                         <optgroup label="Professors">
                             <option value="DR. MD. ASADUL HOQUE|Professor">DR. MD. ASADUL HOQUE</option>
@@ -514,30 +516,30 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
                         <label class="block text-xs font-semibold text-slate-600 mb-1">Teacher's Name</label>
-                        <input type="text" id="teacherName" autocomplete="off" oninput="updatePreview()" placeholder="e.g., DR. MD. ASADUL HOQUE" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none">
+                        <input type="text" id="teacherName" autocomplete="off" oninput="updatePreview()" placeholder="e.g., DR. MD. ASADUL HOQUE" class="w-full rounded-xl border border-stone-300 px-3 py-2 text-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none">
                     </div>
                     <div>
                         <label class="block text-xs font-semibold text-slate-600 mb-1">Designation</label>
-                        <input type="text" id="teacherDesignation" autocomplete="off" oninput="updatePreview()" placeholder="e.g., Professor / Associate Professor" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none">
+                        <input type="text" id="teacherDesignation" autocomplete="off" oninput="updatePreview()" placeholder="e.g., Professor / Associate Professor" class="w-full rounded-xl border border-stone-300 px-3 py-2 text-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none">
                     </div>
                 </div>
 
                 <div>
                     <label class="block text-xs font-semibold text-slate-600 mb-1">Teacher's Department & Institution</label>
-                    <input type="text" id="teacherDept" autocomplete="off" value="Department of Materials Science and Engineering, University of Rajshahi" oninput="updatePreview()" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none">
+                    <input type="text" id="teacherDept" autocomplete="off" value="Department of Materials Science and Engineering, University of Rajshahi" oninput="updatePreview()" class="w-full rounded-xl border border-stone-300 px-3 py-2 text-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none">
                 </div>
             </div>
 
             <!-- Section 3: Submitted By (Student / Group Details) -->
-            <div class="space-y-4">
-                <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+            <div class="bg-white p-4 sm:p-5 rounded-2xl border border-stone-200/90 shadow-2xs space-y-4">
+                <div class="flex items-center justify-between border-b border-stone-100 pb-2.5">
                     <h3 class="text-sm font-bold text-slate-800 flex items-center gap-2">
-                        <span class="w-6 h-6 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-bold">3</span>
+                        <span class="w-6 h-6 rounded-lg bg-indigo-100 text-indigo-700 flex items-center justify-center text-xs font-bold">3</span>
                         Submitted By (Student Details)
                     </h3>
 
                     <!-- Individual vs Group Toggle -->
-                    <div class="inline-flex rounded-xl bg-slate-100 p-1 border border-slate-200">
+                    <div class="inline-flex rounded-xl bg-stone-100 p-1 border border-stone-200">
                         <button type="button" id="mode-single-btn" onclick="setSubmissionMode('single')" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-white text-slate-900 shadow-xs transition cursor-pointer">Individual</button>
                         <button type="button" id="mode-group-btn" onclick="setSubmissionMode('group')" class="px-2.5 py-1 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition cursor-pointer">Group</button>
                     </div>
@@ -548,11 +550,11 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div>
                             <label class="block text-xs font-semibold text-slate-600 mb-1">Student Name</label>
-                            <input type="text" id="studentName" autocomplete="off" oninput="updatePreview()" placeholder="e.g., MD. ABU UBAEDA" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none">
+                            <input type="text" id="studentName" autocomplete="off" oninput="updatePreview()" placeholder="e.g., MD. ABU UBAEDA" class="w-full rounded-xl border border-stone-300 px-3 py-2 text-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none">
                         </div>
                         <div>
                             <label class="block text-xs font-semibold text-slate-600 mb-1">Student ID / Roll No.</label>
-                            <input type="text" id="studentId" autocomplete="off" oninput="updatePreview()" placeholder="e.g., 2510978....." class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm font-mono focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none">
+                            <input type="text" id="studentId" autocomplete="off" oninput="updatePreview()" placeholder="e.g., 2510978....." class="w-full rounded-xl border border-stone-300 px-3 py-2 text-sm font-mono focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none">
                         </div>
                     </div>
                 </div>
@@ -562,10 +564,10 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div>
                             <label class="block text-xs font-semibold text-slate-600 mb-1">Group Name / Number</label>
-                            <input type="text" id="groupName" autocomplete="off" oninput="updatePreview()" placeholder="e.g., Group - A" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none">
+                            <input type="text" id="groupName" autocomplete="off" oninput="updatePreview()" placeholder="e.g., Group - A" class="w-full rounded-xl border border-stone-300 px-3 py-2 text-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none">
                         </div>
                         <div class="flex items-end">
-                            <button type="button" onclick="addGroupMember()" class="w-full inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 hover:bg-emerald-100 transition cursor-pointer">
+                            <button type="button" onclick="addGroupMember()" class="w-full inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200 hover:bg-indigo-100 transition cursor-pointer">
                                 <i data-lucide="user-plus" class="w-4 h-4"></i>
                                 Add Member
                             </button>
@@ -582,7 +584,7 @@
                     <div>
                         <label class="block text-xs font-semibold text-slate-600 mb-1">Session</label>
                         <div class="space-y-1.5">
-                            <select id="sessionPreset" onchange="applySessionPreset()" class="w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2 text-sm text-slate-700 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none">
+                            <select id="sessionPreset" onchange="applySessionPreset()" class="w-full rounded-xl border border-stone-300 bg-stone-50 px-3 py-2 text-sm text-slate-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none">
                                 <option value="">-- Quick Select Session --</option>
                                 <option value="2020-21">2020-21</option>
                                 <option value="2021-22">2021-22</option>
@@ -595,13 +597,13 @@
                                 <option value="2028-29">2028-29</option>
                                 <option value="2029-30">2029-30</option>
                             </select>
-                            <input type="text" id="session" autocomplete="off" oninput="updatePreview()" placeholder="e.g., 2024-25" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none">
+                            <input type="text" id="session" autocomplete="off" oninput="updatePreview()" placeholder="e.g., 2024-25" class="w-full rounded-xl border border-stone-300 px-3 py-2 text-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none">
                         </div>
                     </div>
                     <div>
                         <label class="block text-xs font-semibold text-slate-600 mb-1">Year & Semester</label>
                         <div class="space-y-1.5">
-                            <select id="semesterPreset" onchange="applySemesterPreset()" class="w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2 text-sm text-slate-700 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none">
+                            <select id="semesterPreset" onchange="applySemesterPreset()" class="w-full rounded-xl border border-stone-300 bg-stone-50 px-3 py-2 text-sm text-slate-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none">
                                 <option value="">-- Quick Select Semester --</option>
                                 <option value="1st Year, 1st Semester">1st Year, 1st Semester</option>
                                 <option value="1st Year, 2nd Semester">1st Year, 2nd Semester</option>
@@ -612,55 +614,55 @@
                                 <option value="4th Year, 1st Semester">4th Year, 1st Semester</option>
                                 <option value="4th Year, 2nd Semester">4th Year, 2nd Semester</option>
                             </select>
-                            <input type="text" id="yearSemester" autocomplete="off" oninput="updatePreview()" placeholder="e.g., 2nd Year, 1st Semester" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none">
+                            <input type="text" id="yearSemester" autocomplete="off" oninput="updatePreview()" placeholder="e.g., 2nd Year, 1st Semester" class="w-full rounded-xl border border-stone-300 px-3 py-2 text-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none">
                         </div>
                     </div>
                 </div>
 
                 <!-- Optional Signature / Remarks Box Toggle -->
-                <div class="pt-1 flex items-center justify-between gap-3 bg-slate-50 px-3.5 py-3 rounded-xl border border-slate-200/80">
+                <div class="pt-1 flex items-center justify-between gap-3 bg-stone-50 px-3.5 py-3 rounded-xl border border-stone-200/80">
                     <div>
                         <span class="text-xs font-semibold text-slate-700 block">Include Teacher's Signature & Remarks Footer</span>
                         <span class="text-[11px] text-slate-500">Adds official signature & evaluation box at the bottom</span>
                     </div>
                     <label class="relative inline-flex items-center cursor-pointer shrink-0">
                         <input type="checkbox" id="showSignature" onchange="updatePreview()" class="sr-only peer">
-                        <div class="w-11 h-6 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-emerald-600"></div>
+                        <div class="w-11 h-6 bg-stone-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-stone-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-indigo-600"></div>
                     </label>
                 </div>
             </div>
 
             <!-- Developer Credit Footer -->
-            <footer class="pt-3 pb-2 border-t border-slate-200/80 text-center text-xs text-slate-500">
-                Developed by <a href="https://ubae-da.github.io" target="_blank" rel="noopener noreferrer" class="font-bold text-emerald-700 hover:text-emerald-600 hover:underline transition">ABU UBAEDA</a>
+            <footer class="pt-3 pb-2 border-t border-stone-200/80 text-center text-xs text-slate-500">
+                Developed by <a href="https://ubae-da.github.io" target="_blank" rel="noopener noreferrer" class="font-bold text-indigo-700 hover:text-indigo-600 hover:underline transition">ABU UBAEDA</a>
             </footer>
         </section>
 
-        <!-- Right Side: Live A4 Preview Canvas -->
-        <section id="preview-panel" class="hidden lg:flex lg:col-span-5 xl:col-span-5 bg-slate-200/80 p-3 sm:p-6 min-h-[calc(100vh-6.5rem)] lg:h-[calc(100vh-4rem)] flex-col">
+        <!-- Right Side: Live A4 Preview Canvas (Fixed/Sticky on Desktop) -->
+        <section id="preview-panel" class="hidden lg:flex lg:col-span-5 xl:col-span-5 lg:sticky lg:top-16 lg:h-[calc(100vh-4rem)] bg-[#e7e5e4]/75 p-3 sm:p-6 min-h-[calc(100vh-6.5rem)] flex-col overflow-hidden">
             <!-- Preview Toolbar (Hidden on Print) -->
-            <div class="no-print flex items-center justify-between mb-3 px-1 gap-2">
-                <div class="flex items-center gap-2 text-xs font-semibold text-slate-600">
-                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <div class="no-print flex items-center justify-between mb-3 px-1 gap-2 shrink-0">
+                <div class="flex items-center gap-2 text-xs font-semibold text-slate-700">
+                    <span class="w-2 h-2 rounded-full bg-indigo-600 animate-pulse"></span>
                     <span>Live A4 Preview <span class="hidden sm:inline">(210mm × 297mm)</span></span>
                 </div>
-                <div class="flex items-center gap-1 sm:gap-1.5 bg-white px-2 py-1 rounded-xl border border-slate-300 shadow-2xs">
-                    <button type="button" onclick="adjustZoom(-0.1)" class="p-1.5 sm:p-1 hover:bg-slate-100 rounded-lg text-slate-600 cursor-pointer" title="Zoom Out">
+                <div class="flex items-center gap-1 sm:gap-1.5 bg-white px-2 py-1 rounded-xl border border-stone-300 shadow-2xs">
+                    <button type="button" onclick="adjustZoom(-0.1)" class="p-1.5 sm:p-1 hover:bg-stone-100 rounded-lg text-slate-600 cursor-pointer" title="Zoom Out">
                         <i data-lucide="zoom-out" class="w-4 h-4 sm:w-3.5 sm:h-3.5"></i>
                     </button>
-                    <span id="zoom-label" class="text-xs font-mono font-semibold text-slate-700 w-11 text-center">40%</span>
-                    <button type="button" onclick="adjustZoom(0.1)" class="p-1.5 sm:p-1 hover:bg-slate-100 rounded-lg text-slate-600 cursor-pointer" title="Zoom In">
+                    <span id="zoom-label" class="text-xs font-mono font-semibold text-slate-700 w-11 text-center">54%</span>
+                    <button type="button" onclick="adjustZoom(0.1)" class="p-1.5 sm:p-1 hover:bg-stone-100 rounded-lg text-slate-600 cursor-pointer" title="Zoom In">
                         <i data-lucide="zoom-in" class="w-4 h-4 sm:w-3.5 sm:h-3.5"></i>
                     </button>
-                    <button type="button" onclick="autoFitPreview()" class="ml-1 px-2.5 py-1 sm:py-0.5 text-[11px] font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-md cursor-pointer">
+                    <button type="button" onclick="autoFitPreview()" class="ml-1 px-2.5 py-1 sm:py-0.5 text-[11px] font-semibold bg-stone-100 hover:bg-stone-200 text-slate-700 rounded-md cursor-pointer">
                         Fit
                     </button>
                 </div>
             </div>
 
             <!-- A4 Viewport -->
-            <div id="preview-viewport" class="flex-1 w-full pb-8">
-                <div id="a4-scaler">
+            <div id="preview-viewport" class="flex-1 w-full pb-8 overflow-y-auto overflow-x-auto">
+                <div id="a4-scaler" class="mx-auto shrink-0">
                     <!-- ACTUAL PRINTABLE A4 COVER PAGE -->
                     <div id="cover-page" class="a4-sheet flex flex-col justify-between p-[16mm] text-slate-900">
                         <!-- Dynamic Content Injected by JS for Crisp Template Rendering -->
@@ -673,8 +675,8 @@
 
     <!-- Custom Toast / Message Box (Replaces alert()) -->
     <div id="toast-box" class="no-print fixed bottom-5 right-4 left-4 sm:left-auto sm:right-5 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
-        <div class="bg-slate-900 text-white px-4 py-3 rounded-2xl shadow-xl border border-slate-700 flex items-center gap-2.5 text-sm font-medium">
-            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+        <div class="bg-[#0f172a] text-white px-4 py-3 rounded-2xl shadow-xl border border-indigo-900/60 flex items-center gap-2.5 text-sm font-medium">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-indigo-400 shrink-0"></i>
             <span id="toast-message">Ready to print!</span>
         </div>
     </div>
@@ -716,6 +718,101 @@
         let manualZoom = null;
         let currentMobileTab = 'edit';
 
+        // Dynamic terminology based on selected Submission Type
+        function getDocLabels() {
+            const type = (state.docType || '').toUpperCase();
+            if (type === 'LAB REPORT') {
+                return {
+                    numberLabel: 'Experiment No.',
+                    numberPlaceholder: 'e.g., Experiment No. 01',
+                    topicLabel: 'Experiment Name',
+                    topicPlaceholder: 'Enter the name of your experiment...',
+                    dateLabel: 'Date of Experiment (Optional)',
+                    previewTopicLabel: 'Experiment Name:',
+                    previewDateLabel: 'Date of Experiment:'
+                };
+            }
+            if (type === 'ASSIGNMENT') {
+                return {
+                    numberLabel: 'Assignment No.',
+                    numberPlaceholder: 'e.g., Assignment No. 01',
+                    topicLabel: 'Assignment Topic',
+                    topicPlaceholder: 'Enter the topic of your assignment...',
+                    dateLabel: 'Date of Assignment (Optional)',
+                    previewTopicLabel: 'Assignment Topic:',
+                    previewDateLabel: 'Date of Assignment:'
+                };
+            }
+            if (type === 'TERM PAPER') {
+                return {
+                    numberLabel: 'Term Paper No. (Optional)',
+                    numberPlaceholder: 'e.g., Term Paper 01',
+                    topicLabel: 'Term Paper Topic',
+                    topicPlaceholder: 'Enter the title/topic of your term paper...',
+                    dateLabel: 'Date of Issue (Optional)',
+                    previewTopicLabel: 'Term Paper Topic:',
+                    previewDateLabel: 'Date of Issue:'
+                };
+            }
+            if (type === 'PROJECT REPORT') {
+                return {
+                    numberLabel: 'Project No. (Optional)',
+                    numberPlaceholder: 'e.g., Project 01',
+                    topicLabel: 'Project Title',
+                    topicPlaceholder: 'Enter the title of your project...',
+                    dateLabel: 'Date of Commencement (Optional)',
+                    previewTopicLabel: 'Project Title:',
+                    previewDateLabel: 'Date of Commencement:'
+                };
+            }
+            if (type === 'SEMINAR REPORT') {
+                return {
+                    numberLabel: 'Seminar No. (Optional)',
+                    numberPlaceholder: 'e.g., Seminar 01',
+                    topicLabel: 'Seminar Topic',
+                    topicPlaceholder: 'Enter the topic of your seminar...',
+                    dateLabel: 'Date of Seminar (Optional)',
+                    previewTopicLabel: 'Seminar Topic:',
+                    previewDateLabel: 'Date of Seminar:'
+                };
+            }
+            if (type === 'INDUSTRIAL TOUR REPORT') {
+                return {
+                    numberLabel: 'Report No. (Optional)',
+                    numberPlaceholder: 'e.g., Tour Report 01',
+                    topicLabel: 'Industry / Tour Topic',
+                    topicPlaceholder: 'Enter the industry name or tour topic...',
+                    dateLabel: 'Date of Visit (Optional)',
+                    previewTopicLabel: 'Industry / Topic:',
+                    previewDateLabel: 'Date of Visit:'
+                };
+            }
+            return {
+                numberLabel: 'Experiment / Assignment No.',
+                numberPlaceholder: 'e.g., No. 01',
+                topicLabel: 'Topic / Title',
+                topicPlaceholder: 'Enter the title or topic...',
+                dateLabel: 'Date (Optional)',
+                previewTopicLabel: 'Topic:',
+                previewDateLabel: 'Date:'
+            };
+        }
+
+        function updateDynamicLabels() {
+            const labels = getDocLabels();
+            const docNumberLabel = document.getElementById('docNumberLabel');
+            const docNumberInput = document.getElementById('docNumber');
+            const topicTitleLabel = document.getElementById('topicTitleLabel');
+            const topicTitleInput = document.getElementById('topicTitle');
+            const expDateLabel = document.getElementById('expDateLabel');
+
+            if (docNumberLabel) docNumberLabel.textContent = labels.numberLabel;
+            if (docNumberInput) docNumberInput.placeholder = labels.numberPlaceholder;
+            if (topicTitleLabel) topicTitleLabel.textContent = labels.topicLabel;
+            if (topicTitleInput) topicTitleInput.placeholder = labels.topicPlaceholder;
+            if (expDateLabel) expDateLabel.textContent = labels.dateLabel;
+        }
+
         // Initialize app on load
         window.addEventListener('DOMContentLoaded', () => {
             loadStateFromStorage();
@@ -727,17 +824,15 @@
         });
 
         window.addEventListener('resize', () => {
-            if (window.innerWidth < 1024 && manualZoom === null) {
+            if (manualZoom === null) {
                 autoFitPreview();
             }
         });
 
         function initDefaultZoom() {
-            if (window.innerWidth >= 1024) {
-                setPreviewZoom(0.4, false);
-            } else {
+            requestAnimationFrame(() => {
                 autoFitPreview();
-            }
+            });
         }
 
         function setPreviewZoom(scale, isManual = true) {
@@ -764,11 +859,11 @@
             const zoomLabel = document.getElementById('zoom-label');
             if (!viewport || !scaler || !sheet) return;
 
-            const availableWidth = viewport.clientWidth - 24;
+            const availableWidth = viewport.clientWidth - 28;
             const sheetWidth = sheet.offsetWidth || 794; // 210mm in px at 96dpi
             const sheetHeight = sheet.offsetHeight || 1123; // 297mm in px at 96dpi
 
-            let scale = availableWidth / sheetWidth;
+            let scale = availableWidth > 100 ? (availableWidth / sheetWidth) : 0.54;
             scale = Math.max(0.32, Math.min(scale, 1));
 
             scaler.style.transform = `scale(${scale})`;
@@ -779,7 +874,7 @@
 
         function adjustZoom(delta) {
             const zoomLabel = document.getElementById('zoom-label');
-            const currentText = zoomLabel ? parseInt(zoomLabel.textContent, 10) / 100 : 0.4;
+            const currentText = zoomLabel ? parseInt(zoomLabel.textContent, 10) / 100 : 0.54;
             const baseScale = manualZoom !== null ? manualZoom : currentText;
             const nextScale = Math.max(0.3, Math.min(1.5, Number((baseScale + delta).toFixed(2))));
             setPreviewZoom(nextScale, true);
@@ -798,7 +893,7 @@
                 previewPanel.classList.remove('hidden');
                 previewPanel.classList.add('flex');
 
-                tabPreview.className = 'flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl text-xs font-bold bg-emerald-600 text-white shadow-xs transition cursor-pointer';
+                tabPreview.className = 'flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl text-xs font-bold bg-indigo-600 text-white shadow-xs transition cursor-pointer';
                 tabEdit.className = 'flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl text-xs font-bold bg-slate-700/70 text-slate-300 hover:text-white transition cursor-pointer';
 
                 setTimeout(autoFitPreview, 30);
@@ -807,7 +902,7 @@
                 previewPanel.classList.remove('flex');
                 editorPanel.classList.remove('hidden');
 
-                tabEdit.className = 'flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl text-xs font-bold bg-emerald-600 text-white shadow-xs transition cursor-pointer';
+                tabEdit.className = 'flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl text-xs font-bold bg-indigo-600 text-white shadow-xs transition cursor-pointer';
                 tabPreview.className = 'flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl text-xs font-bold bg-slate-700/70 text-slate-300 hover:text-white transition cursor-pointer';
             }
             if (window.lucide) lucide.createIcons();
@@ -826,9 +921,9 @@
             document.querySelectorAll('.template-btn').forEach(btn => {
                 const isSelected = btn.getAttribute('data-template') === state.template;
                 if (isSelected) {
-                    btn.className = 'template-btn active-template flex flex-col items-center justify-center p-2.5 min-h-[54px] rounded-xl border-2 border-emerald-600 bg-emerald-50/60 text-emerald-900 text-xs font-semibold transition cursor-pointer text-center';
+                    btn.className = 'template-btn active-template flex flex-col items-center justify-center p-2.5 min-h-[54px] rounded-xl border-2 border-indigo-600 bg-indigo-50/70 text-indigo-950 text-xs font-semibold transition cursor-pointer text-center';
                 } else {
-                    btn.className = 'template-btn flex flex-col items-center justify-center p-2.5 min-h-[54px] rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold transition cursor-pointer text-center';
+                    btn.className = 'template-btn flex flex-col items-center justify-center p-2.5 min-h-[54px] rounded-xl border border-stone-200 bg-white hover:bg-stone-50 text-slate-700 text-xs font-semibold transition cursor-pointer text-center';
                 }
             });
         }
@@ -913,7 +1008,7 @@
                 const logoName = btn.getAttribute('data-logo');
                 const isActive = !state.customLogo && state.logoPreset === logoName;
                 if (isActive) {
-                    btn.className = 'logo-preset-btn inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1.5 rounded-lg font-semibold bg-emerald-600 text-white transition cursor-pointer';
+                    btn.className = 'logo-preset-btn inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1.5 rounded-lg font-semibold bg-indigo-600 text-white transition cursor-pointer';
                 } else {
                     btn.className = 'logo-preset-btn inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1.5 rounded-lg font-semibold text-slate-600 hover:text-slate-900 transition cursor-pointer';
                 }
@@ -999,6 +1094,7 @@
             const sigEl = document.getElementById('showSignature');
             if (sigEl) sigEl.checked = !!state.showSignature;
 
+            updateDynamicLabels();
             updateTemplateButtonsUI();
             updateThemeButtonsUI();
             updateLogoButtonsUI();
@@ -1018,6 +1114,7 @@
             const sigEl = document.getElementById('showSignature');
             if (sigEl) state.showSignature = sigEl.checked;
 
+            updateDynamicLabels();
             saveStateToStorage();
             renderCoverPage();
         }
@@ -1133,8 +1230,8 @@
             if (!container) return;
             container.innerHTML = state.groupMembers.map((m, idx) => `
                 <div class="grid grid-cols-12 gap-2 items-center">
-                    <input type="text" autocomplete="off" value="${escapeHtml(m.name)}" oninput="updateGroupMember(${idx}, 'name', this.value)" placeholder="Member ${idx + 1} Name" class="col-span-6 rounded-xl border border-slate-300 px-3 py-2 text-sm focus:border-emerald-500 outline-none">
-                    <input type="text" autocomplete="off" value="${escapeHtml(m.id)}" oninput="updateGroupMember(${idx}, 'id', this.value)" placeholder="Student ID" class="col-span-5 rounded-xl border border-slate-300 px-3 py-2 text-sm font-mono focus:border-emerald-500 outline-none">
+                    <input type="text" autocomplete="off" value="${escapeHtml(m.name)}" oninput="updateGroupMember(${idx}, 'name', this.value)" placeholder="Member ${idx + 1} Name" class="col-span-6 rounded-xl border border-stone-300 px-3 py-2 text-sm focus:border-indigo-500 outline-none">
+                    <input type="text" autocomplete="off" value="${escapeHtml(m.id)}" oninput="updateGroupMember(${idx}, 'id', this.value)" placeholder="Student ID" class="col-span-5 rounded-xl border border-stone-300 px-3 py-2 text-sm font-mono focus:border-indigo-500 outline-none">
                     <button type="button" onclick="removeGroupMember(${idx})" ${state.groupMembers.length <= 1 ? 'disabled' : ''} class="col-span-1 flex items-center justify-center p-2 rounded-xl text-rose-500 hover:bg-rose-50 disabled:opacity-30 cursor-pointer" title="Remove">
                         <i data-lucide="trash-2" class="w-4 h-4"></i>
                     </button>
@@ -1312,6 +1409,7 @@
             const p = state.accentPrimary;
             const s = state.accentSecondary;
             const tint = state.accentTint;
+            const labels = getDocLabels();
 
             return `
                 <div class="w-full h-full border-[3px] p-1.5 flex flex-col justify-between" style="border-color: ${p};">
@@ -1357,7 +1455,7 @@
                             </div>
                             ${state.topicTitle ? `
                             <div class="grid grid-cols-[175px_1fr] gap-2 items-baseline text-[15.5px] pt-2 border-t" style="border-color: ${p}25;">
-                                <span class="font-bold text-slate-700">Experiment / Topic:</span>
+                                <span class="font-bold text-slate-700">${labels.previewTopicLabel}</span>
                                 <span class="font-semibold text-slate-900 text-[16px] leading-snug">${escapeHtml(state.topicTitle)}</span>
                             </div>` : ''}
                         </div>
@@ -1388,7 +1486,7 @@
                             <div class="rounded-xl border px-5 py-3 flex items-center ${state.expDate ? 'justify-between' : 'justify-center'} text-[14.5px]" style="border-color: ${p}35; background-color: ${tint};">
                                 ${state.expDate ? `
                                 <div>
-                                    <span class="font-bold text-slate-700">Date of Experiment:</span>
+                                    <span class="font-bold text-slate-700">${labels.previewDateLabel}</span>
                                     <span class="font-semibold text-slate-900 ml-1">${formatDisplayDate(state.expDate)}</span>
                                 </div>` : ''}
                                 <div>
@@ -1407,6 +1505,7 @@
             const p = state.accentPrimary;
             const s = state.accentSecondary;
             const tint = state.accentTint;
+            const labels = getDocLabels();
 
             return `
                 <!-- Left Accent Sidebar -->
@@ -1456,7 +1555,7 @@
                         </div>
                         ${state.topicTitle ? `
                         <div class="grid grid-cols-[165px_1fr] gap-2 items-baseline text-[15.5px] pt-2 border-t border-slate-200/80">
-                            <span class="font-bold text-slate-600">Experiment / Topic:</span>
+                            <span class="font-bold text-slate-600">${labels.previewTopicLabel}</span>
                             <span class="font-semibold text-slate-900 text-[16px] leading-snug">${escapeHtml(state.topicTitle)}</span>
                         </div>` : ''}
                     </div>
@@ -1482,7 +1581,7 @@
                         <div class="rounded-xl border px-5 py-3 flex items-center ${state.expDate ? 'justify-between' : 'justify-center'} text-[14.5px]" style="border-color: ${p}35; background-color: ${tint};">
                             ${state.expDate ? `
                             <div>
-                                <span class="font-bold text-slate-700">Date of Experiment:</span>
+                                <span class="font-bold text-slate-700">${labels.previewDateLabel}</span>
                                 <span class="font-semibold text-slate-900 ml-1">${formatDisplayDate(state.expDate)}</span>
                             </div>` : ''}
                             <div>
@@ -1499,6 +1598,7 @@
         function renderFormalFramedTemplate() {
             const p = state.accentPrimary;
             const tint = state.accentTint;
+            const labels = getDocLabels();
 
             return `
                 <!-- Header -->
@@ -1532,7 +1632,7 @@
                             </tr>
                             ${state.topicTitle ? `
                             <tr>
-                                <td class="px-4 py-3 font-bold text-slate-800" style="background-color: ${tint};">Experiment / Topic</td>
+                                <td class="px-4 py-3 font-bold text-slate-800" style="background-color: ${tint};">${labels.topicLabel}</td>
                                 <td class="px-4 py-3 font-semibold text-slate-900 text-[16px] leading-snug">${escapeHtml(state.topicTitle)}</td>
                             </tr>` : ''}
                         </tbody>
@@ -1570,7 +1670,7 @@
                     <div class="border px-5 py-3 flex items-center ${state.expDate ? 'justify-between' : 'justify-center'} text-[14.5px]" style="border-color: ${p}; background-color: ${tint};">
                         ${state.expDate ? `
                         <div>
-                            <span class="font-bold text-slate-800">Date of Experiment:</span>
+                            <span class="font-bold text-slate-800">${labels.previewDateLabel}</span>
                             <span class="font-semibold text-slate-900 ml-1">${formatDisplayDate(state.expDate)}</span>
                         </div>` : ''}
                         <div>
@@ -1587,6 +1687,7 @@
             const p = state.accentPrimary;
             const s = state.accentSecondary;
             const tint = state.accentTint;
+            const labels = getDocLabels();
 
             return `
                 <!-- Full-Width Executive Top Banner -->
@@ -1634,7 +1735,7 @@
                         </div>
                         ${state.topicTitle ? `
                         <div class="grid grid-cols-[170px_1fr] gap-2 items-baseline text-[15.5px] pt-2.5 border-t" style="border-color: ${p}25;">
-                            <span class="font-bold text-slate-700">Experiment / Topic:</span>
+                            <span class="font-bold text-slate-700">${labels.previewTopicLabel}</span>
                             <span class="font-semibold text-slate-900 text-[16px] leading-snug">${escapeHtml(state.topicTitle)}</span>
                         </div>` : ''}
                     </div>
@@ -1664,7 +1765,7 @@
                         <div class="rounded-xl border px-5 py-3 flex items-center ${state.expDate ? 'justify-between' : 'justify-center'} text-[14.5px]" style="border-color: ${p}35; background-color: ${tint};">
                             ${state.expDate ? `
                             <div>
-                                <span class="font-bold text-slate-700">Date of Experiment:</span>
+                                <span class="font-bold text-slate-700">${labels.previewDateLabel}</span>
                                 <span class="font-semibold text-slate-900 ml-1">${formatDisplayDate(state.expDate)}</span>
                             </div>` : ''}
                             <div>
@@ -1681,6 +1782,7 @@
         function renderCleanMinimalTemplate() {
             const p = state.accentPrimary;
             const tint = state.accentTint;
+            const labels = getDocLabels();
 
             return `
                 <!-- Clean Minimal Header -->
@@ -1720,7 +1822,7 @@
                     </div>
                     ${state.topicTitle ? `
                     <div class="grid grid-cols-[170px_1fr] gap-2 items-baseline text-[15.5px] pt-2.5 border-t" style="border-color: ${p}20;">
-                        <span class="font-bold text-slate-600">Experiment / Topic:</span>
+                        <span class="font-bold text-slate-600">${labels.previewTopicLabel}</span>
                         <span class="font-semibold text-slate-900 text-[16px] leading-snug">${escapeHtml(state.topicTitle)}</span>
                     </div>` : ''}
                 </div>
@@ -1746,7 +1848,7 @@
                     <div class="pt-4 border-t-2 flex items-center ${state.expDate ? 'justify-between' : 'justify-center'} text-[14.5px]" style="border-color: ${p}40;">
                         ${state.expDate ? `
                         <div>
-                            <span class="font-bold text-slate-700">Date of Experiment:</span>
+                            <span class="font-bold text-slate-700">${labels.previewDateLabel}</span>
                             <span class="font-semibold text-slate-900 ml-1">${formatDisplayDate(state.expDate)}</span>
                         </div>` : ''}
                         <div>
@@ -1763,6 +1865,7 @@
             const p = state.accentPrimary;
             const s = state.accentSecondary;
             const tint = state.accentTint;
+            const labels = getDocLabels();
 
             return `
                 <!-- Top Geometric Accent Bars -->
@@ -1814,7 +1917,7 @@
                         </div>
                         ${state.topicTitle ? `
                         <div class="grid grid-cols-[165px_1fr] gap-2 items-baseline text-[15.5px] pt-2.5 border-t" style="border-color: ${p}20;">
-                            <span class="font-bold text-slate-600">Experiment / Topic:</span>
+                            <span class="font-bold text-slate-600">${labels.previewTopicLabel}</span>
                             <span class="font-semibold text-slate-900 text-[16px] leading-snug">${escapeHtml(state.topicTitle)}</span>
                         </div>` : ''}
                     </div>
@@ -1840,7 +1943,7 @@
                         <div class="rounded-xl px-5 py-3 flex items-center ${state.expDate ? 'justify-between' : 'justify-center'} text-[14.5px] border" style="background-color: ${tint}; border-color: ${p}30;">
                             ${state.expDate ? `
                             <div>
-                                <span class="font-bold text-slate-700">Date of Experiment:</span>
+                                <span class="font-bold text-slate-700">${labels.previewDateLabel}</span>
                                 <span class="font-semibold text-slate-900 ml-1">${formatDisplayDate(state.expDate)}</span>
                             </div>` : ''}
                             <div>
@@ -1865,6 +1968,7 @@
             const p = state.accentPrimary;
             const s = state.accentSecondary;
             const tint = state.accentTint;
+            const labels = getDocLabels();
 
             return `
                 <!-- Top Double Accent Line -->
@@ -1910,7 +2014,7 @@
                         </div>
                         ${state.topicTitle ? `
                         <div class="grid grid-cols-[170px_1fr] gap-2 items-baseline text-[15.5px] pt-2.5 border-t" style="border-color: ${p}25;">
-                            <span class="font-bold text-slate-700">Experiment / Topic:</span>
+                            <span class="font-bold text-slate-700">${labels.previewTopicLabel}</span>
                             <span class="font-semibold text-slate-900 text-[16px] leading-snug">${escapeHtml(state.topicTitle)}</span>
                         </div>` : ''}
                     </div>
@@ -1936,7 +2040,7 @@
                         <div class="rounded-xl border px-5 py-3 flex items-center ${state.expDate ? 'justify-between' : 'justify-center'} text-[14.5px]" style="border-color: ${p}35; background-color: ${tint};">
                             ${state.expDate ? `
                             <div>
-                                <span class="font-bold text-slate-700">Date of Experiment:</span>
+                                <span class="font-bold text-slate-700">${labels.previewDateLabel}</span>
                                 <span class="font-semibold text-slate-900 ml-1">${formatDisplayDate(state.expDate)}</span>
                             </div>` : ''}
                             <div>
@@ -1958,6 +2062,7 @@
             const p = state.accentPrimary;
             const s = state.accentSecondary;
             const tint = state.accentTint;
+            const labels = getDocLabels();
 
             return `
                 <!-- Angled Top Hero Header -->
@@ -2000,7 +2105,7 @@
                         </div>
                         ${state.topicTitle ? `
                         <div class="grid grid-cols-[170px_1fr] gap-2 items-baseline text-[15.5px] pt-2.5 border-t" style="border-color: ${p}25;">
-                            <span class="font-bold text-slate-700">Experiment / Topic:</span>
+                            <span class="font-bold text-slate-700">${labels.previewTopicLabel}</span>
                             <span class="font-semibold text-slate-900 text-[16px] leading-snug">${escapeHtml(state.topicTitle)}</span>
                         </div>` : ''}
                     </div>
@@ -2026,7 +2131,7 @@
                         <div class="rounded-xl border px-5 py-3 flex items-center ${state.expDate ? 'justify-between' : 'justify-center'} text-[14.5px]" style="border-color: ${p}35; background-color: ${tint};">
                             ${state.expDate ? `
                             <div>
-                                <span class="font-bold text-slate-700">Date of Experiment:</span>
+                                <span class="font-bold text-slate-700">${labels.previewDateLabel}</span>
                                 <span class="font-semibold text-slate-900 ml-1">${formatDisplayDate(state.expDate)}</span>
                             </div>` : ''}
                             <div>
@@ -2045,6 +2150,7 @@
             const p = state.accentPrimary;
             const s = state.accentSecondary;
             const tint = state.accentTint;
+            const labels = getDocLabels();
 
             return `
                 <div class="w-full h-full border-2 p-7 flex flex-col justify-between rounded-xl" style="border-color: ${p};">
@@ -2091,7 +2197,7 @@
                         </div>
                         ${state.topicTitle ? `
                         <div class="grid grid-cols-[170px_1fr] gap-2 items-baseline text-[15.5px] pt-2.5 border-t" style="border-color: ${p}25;">
-                            <span class="font-bold text-slate-700">Experiment / Topic:</span>
+                            <span class="font-bold text-slate-700">${labels.previewTopicLabel}</span>
                             <span class="font-semibold text-slate-900 text-[16px] leading-snug">${escapeHtml(state.topicTitle)}</span>
                         </div>` : ''}
                     </div>
@@ -2117,7 +2223,7 @@
                         <div class="rounded-xl border px-5 py-3 flex items-center ${state.expDate ? 'justify-between' : 'justify-center'} text-[14.5px]" style="border-color: ${p}35; background-color: ${tint};">
                             ${state.expDate ? `
                             <div>
-                                <span class="font-bold text-slate-700">Date of Experiment:</span>
+                                <span class="font-bold text-slate-700">${labels.previewDateLabel}</span>
                                 <span class="font-semibold text-slate-900 ml-1">${formatDisplayDate(state.expDate)}</span>
                             </div>` : ''}
                             <div>
@@ -2136,6 +2242,7 @@
             const p = state.accentPrimary;
             const s = state.accentSecondary;
             const tint = state.accentTint;
+            const labels = getDocLabels();
 
             return `
                 <div class="w-[62mm] h-full shrink-0 p-7 text-white flex flex-col justify-between" style="background: linear-gradient(180deg, ${p} 0%, ${s} 100%);">
@@ -2160,7 +2267,7 @@
                     <div class="space-y-4 border-t border-white/25 pt-5 text-[13px]">
                         ${state.expDate ? `
                         <div>
-                            <div class="text-[10.5px] uppercase tracking-widest text-white/75 font-bold">Date of Experiment</div>
+                            <div class="text-[10.5px] uppercase tracking-widest text-white/75 font-bold">${labels.previewDateLabel.replace(':', '')}</div>
                             <div class="font-semibold text-white mt-0.5">${formatDisplayDate(state.expDate)}</div>
                         </div>` : ''}
                         <div>
@@ -2189,7 +2296,7 @@
                         </div>
                         ${state.topicTitle ? `
                         <div class="pt-2.5 border-t" style="border-color: ${p}20;">
-                            <div class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Experiment / Topic</div>
+                            <div class="text-[11px] font-bold uppercase tracking-wider text-slate-500">${labels.topicLabel}</div>
                             <div class="font-semibold text-slate-900 text-[15.5px] leading-snug mt-0.5">${escapeHtml(state.topicTitle)}</div>
                         </div>` : ''}
                     </div>
@@ -2259,7 +2366,7 @@
                     scaler.style.width = prevWidth;
                     scaler.style.height = prevHeight;
                 }
-                if (window.innerWidth < 1024 && manualZoom === null) {
+                if (manualZoom === null) {
                     autoFitPreview();
                 }
                 window.removeEventListener('afterprint', cleanupAfterPrint);
